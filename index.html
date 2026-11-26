@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173f34">
+  <meta name="description" content="Your Dota 1 workspace: sketch a strategy, compare item builds and explore hero suggestions for v7.07b1.">
+  <title>Dota Lab — Plan. Compare. Pick.</title>
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+  <link rel="stylesheet" href="lab.css">
+  <link rel="stylesheet" href="draft.css">
+  <link rel="stylesheet" href="duel.css">
+  <link rel="stylesheet" href="tactics.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a href="#" class="brand" aria-label="Dota Lab home"><span class="brand-mark">D<span>↗</span></span><span>Dota Lab<small>THE EUROPE TOOLKIT</small></span></a>
+    <div class="nav-label">YOUR WORKSPACE</div>
+    <nav class="main-nav" aria-label="Tools">
+      <button class="nav-tool active" data-workspace-tool="home" aria-current="page" aria-label="Home"><span class="nav-icon">⌂</span><span>Home</span></button>
+      <button class="nav-tool" data-workspace-tool="tactics" aria-label="Strategy Board"><span class="nav-icon">⌖</span><span>Strategy Board</span><small>01</small></button>
+      <button class="nav-tool" data-workspace-tool="duel" aria-label="Build Duel"><span class="nav-icon">⇄</span><span>Build Duel</span><small>02</small></button>
+      <button class="nav-tool" data-workspace-tool="draft" aria-label="Hero Suggestions"><span class="nav-icon">◈</span><span>Hero Suggestions</span><small>03</small></button>
+    </nav>
+    <div class="nav-label">YOUR COLLECTION</div>
+    <button class="nav-tool secondary" id="open-saved" aria-label="Saved projects"><span class="nav-icon">▤</span><span>Saved projects</span><small id="saved-count">0</small></button>
+    <button class="nav-tool secondary" id="open-items" aria-label="Full item catalog"><span class="nav-icon">◇</span><span>Item catalog</span></button>
+    <button class="nav-tool secondary" id="open-sources" aria-label="Sources and scope"><span class="nav-icon">ⓘ</span><span>Sources &amp; scope</span></button>
+    <div class="sidebar-bottom"><div class="version-card"><span>DOTA 1 WORKSPACE</span><strong>v7.07b1</strong><p>Draft. Compare. Plan.</p></div><p class="sidebar-note">An independent community project.<br>Built for the love of the game.</p></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumbs"><span>Workspace</span><span>/</span><strong id="breadcrumb-tool">Home</strong></div><div class="top-actions"><button class="mobile-saved" id="mobile-items">Items</button><button class="mobile-saved" id="mobile-saved">Saved projects</button><span class="preview-tag">COMMUNITY PREVIEW</span><span class="map-pill">v7.07b1</span></div></header>
+    <main class="workspace-main">
+      <nav class="mobile-tabs" aria-label="Workspace tools"><button data-workspace-tool="home" class="active">⌂ Home</button><button data-workspace-tool="tactics">⌖ Strategy</button><button data-workspace-tool="duel">⇄ Build Duel</button><button data-workspace-tool="draft">◈ Heroes</button></nav>
+      <div class="workspace-heading"><div><div class="eyebrow" id="tool-eyebrow">YOUR DOTA 1 WORKSPACE</div><h1 id="tool-heading">Plan together. Build smarter. Pick better</h1><p id="tool-description">Three tools to prepare for your next game. Choose where you want to start.</p></div><div class="heading-actions" hidden><button class="button" id="save-project">＋ Save project</button><button class="button button-primary" id="share-project">↗ Share project</button></div></div>
+      <div class="toolbar-title"><input id="project-title" type="hidden" value="My draft"><span id="project-context">OPEN AN EXISTING PROJECT</span><button class="text-button" id="export-project" hidden>Export JSON ↓</button><button class="text-button" id="import-project">Import JSON ↑</button><input id="import-file" type="file" accept="application/json,.json" class="sr-only" tabindex="-1"></div>
+      <div id="workspace"><section id="home-view" class="tool-view home-view" aria-label="Dota Lab Home">
+        <div class="home-intro"><span class="home-map-label">DOTA 1 · v7.07b1</span><p>From your first pick to your team’s next move.</p></div>
+        <div class="home-tool-grid">
+          <article class="home-tool-card home-tactics-card">
+            <div class="home-card-visual" aria-hidden="true"><svg class="home-mini-map" viewBox="0 0 300 160"><path d="M10 140 90 78 130 86 210 30 290 15" fill="none" stroke="#8aaf9e" stroke-width="27" opacity=".27"/><path d="M55 120Q90 55 190 60" fill="none" stroke="#d7eb98" stroke-width="3" stroke-dasharray="7 5"/><path d="m183 52 14 8-14 8" fill="none" stroke="#d7eb98" stroke-width="3"/><circle cx="205" cy="105" r="29" fill="#d7eb98" fill-opacity=".12" stroke="#d7eb98" stroke-dasharray="4 4"/><circle cx="205" cy="105" r="5" fill="#d7eb98"/><circle cx="55" cy="120" r="7" fill="#85b9d1"/></svg><span class="home-visual-icon">⌖</span></div>
+            <div class="home-card-copy"><span class="home-card-number">01 · PLAN</span><h2>Strategy Board</h2><p>Build your own strategy on the map. Place heroes, observers and sentries, draw arrows or freehand notes, and preview terrain-aware ward vision.</p><ul><li>Ward placement</li><li>Fog ON / OFF</li><li>Drawing & steps</li></ul><button class="home-open-tool" data-workspace-tool="tactics">Explore Strategy Board <span>↗</span></button></div>
+          </article>
+          <article class="home-tool-card home-duel-card">
+            <div class="home-card-visual" aria-hidden="true"><div class="home-mini-duel"><div><b>A</b><i></i><i></i><i></i></div><span>⇄</span><div><b>B</b><i></i><i></i><i class="home-mini-changed"></i></div><small>See what one item changes.</small></div><span class="home-visual-icon">⇄</span></div>
+            <div class="home-card-copy"><span class="home-card-number">02 · COMPARE</span><h2>Build Duel</h2><p>Compare two heroes with different builds, or test one item change. See physical hits, criticals, regeneration and separate poison, burn and item damage effects.</p><ul><li>Live stats</li><li>Hero vs Hero</li><li>Item damage effects</li></ul><button class="home-open-tool" data-workspace-tool="duel">Explore Build Duel <span>↗</span></button></div>
+          </article>
+          <article class="home-tool-card home-draft-card">
+            <div class="home-card-visual" aria-hidden="true"><div class="home-mini-draft"><span>YOUR TEAM</span><div><i>1</i><i>2</i><i>3</i><i>4</i><i class="home-mini-empty">＋</i></div><small>Find the missing piece.</small></div><span class="home-visual-icon">◈</span></div>
+            <div class="home-card-copy"><span class="home-card-number">03 · PICK</span><h2>Hero Suggestions</h2><p>Add both teams and choose your position. Get hero suggestions that explain what your lineup needs and what each pick adds.</p><ul><li>Team needs</li><li>Role-based picks</li><li>Clear reasons</li></ul><button class="home-open-tool" data-workspace-tool="draft">Explore Hero Suggestions <span>↗</span></button></div>
+          </article>
+        </div>
+        <div class="home-bottom-note"><div><span class="home-note-icon">▤</span><p><strong>Keep a good idea.</strong> Save projects in this browser, or export JSON to keep a portable copy.</p></div><p class="home-scope-note">Draft advice uses curated tags. Build calculations and ward vision explain their assumptions inside each tool.</p></div>
+        <div class="home-branding"><span>Powered by <strong>Ranked Gaming Client</strong></span><span>Developed by <strong>Crow</strong> with ❤️</span></div>
+      </section><section id="draft-view" class="tool-view" aria-label="Hero Suggestions" hidden></section><section id="duel-view" class="tool-view" aria-label="Build Duel" hidden></section><section id="tactics-view" class="tool-view" aria-label="Strategy Board" hidden></section></div>
+      <footer class="footer"><span><strong>Dota Lab</strong><span>·</span>One workspace. Three ways to prepare.</span><div class="footer-branding"><span>Powered by Ranked Gaming Client</span><span>Developed by Crow with <span class="credit-heart">❤️</span></span></div><button id="footer-sources">Sources, assumptions &amp; credits ↗</button></footer>
+    </main>
+  </div>
+  <dialog id="picker-dialog" class="modal wide" aria-labelledby="picker-title"><div class="modal-heading"><div><div class="eyebrow" id="picker-eyebrow">HERO CATALOG</div><h2 id="picker-title">Choose a hero.</h2></div><button class="modal-close close-modal" aria-label="Close selector">×</button></div><p id="picker-description" class="modal-intro"></p><div class="picker-search"><span aria-hidden="true">⌕</span><label class="sr-only" for="picker-search">Search catalog</label><input type="search" id="picker-search" placeholder="Search hero or classic name…" autocomplete="off"></div><div id="picker-categories" class="item-category-tabs"></div><div id="picker-count" class="picker-count"></div><div class="picker-grid" id="picker-grid"></div></dialog>
+  <dialog id="saved-dialog" class="modal" aria-labelledby="saved-title"><div class="modal-heading"><div><div class="eyebrow">YOUR COLLECTION</div><h2 id="saved-title">Pick up where you left off.</h2></div><button class="modal-close close-modal" aria-label="Close saved projects">×</button></div><p class="modal-intro">Drafts, comparisons and tactics — saved in this browser. Export a JSON file to keep a portable copy.</p><div class="saved-list" id="saved-list"></div></dialog>
+  <dialog id="sources-dialog" class="modal wide" aria-labelledby="sources-title"><div class="modal-heading"><div><div class="eyebrow">SOURCES &amp; SCOPE</div><h2 id="sources-title">Understand what’s behind each tool.</h2></div><button class="modal-close close-modal" aria-label="Close sources">×</button></div><div class="source-notice">This is a community planning workspace for Dota 1. The tools explain their assumptions and keep editorial draft advice, calculated scenarios and map annotations separate.</div>
+    <article class="source-card"><h3>Hero Suggestions · curated advice</h3><p>The catalog covers <span id="roster-count">112</span> classic heroes. Positions and ability tags are editorial guides for finding team needs; they are not measured win rates or a complete verification of the current map’s abilities. Confirm availability and recent ability changes in your client.</p><a href="assets/SOURCES.txt" target="_blank" rel="noopener noreferrer">Roster &amp; artwork credits ↗</a><a href="https://dotaone.com/heroes.html" target="_blank" rel="noopener noreferrer">Classic hero archive ↗</a></article>
+    <article class="source-card"><h3>Build Duel · automatic map stats</h3><p>Choose a hero, level and items. Base attributes, natural growth, damage, armor, HP, mana, HP/MP regeneration and passive item bonuses are calculated from tables extracted from the exact v7.07b1 map. Compare two builds on one hero, change one item, or use Hero vs Hero with independent heroes and levels. The latter shows physical hits into the opposing defenses, poison/burn DPS, ready procs and explicitly enabled active effects separately. It does not simulate a whole fight or predict a winner.</p><p>The automatic model currently covers 112 heroes and the full named item registry, including recipes and toggle/charge variants. Learned skills, talents, temporary buffs and listed special effects are excluded. Some scripted or aura-based items explicitly mark automatic totals as incomplete until their special effects are modelled. Advanced manual stats remain available for custom scenarios.</p><p>The developer’s 7.00 changelog documents the modern positive-armor reduction formula. Matching constants appear in the target map. Negative armor in that model requires a manually entered physical-resistance percentage. Calculated base stats have not yet been checked against a fresh gameplay session.</p><a href="assets/map-stats-SOURCE.txt" target="_blank" rel="noopener noreferrer">Exact-map stat provenance ↗</a><a href="https://d1stats.ru/dota-700-changelog/?lang=en" target="_blank" rel="noopener noreferrer">Developer armor changelog ↗</a></article>
+    <article class="source-card"><h3>Strategy Board · the actual map asset</h3><p>The board uses the target map’s default tactical minimap from its required official texture archive. The original 256 × 256 image is enlarged for display. Place markers, draw routes and arrange strategy steps. Its ward-vision preview uses extracted terrain and tree elevations; it is an approximation, not Warcraft III’s exact visibility engine. Custom blockers, cut trees and dynamic game events are not fully simulated.</p><a href="assets/terrain-SOURCE.txt" target="_blank" rel="noopener noreferrer">Ward-vision assumptions ↗</a><a href="assets/map-SOURCE.txt" target="_blank" rel="noopener noreferrer">Map provenance ↗</a><a href="https://d1map.net/maps" target="_blank" rel="noopener noreferrer">Official map catalog ↗</a></article>
+    <p class="privacy-note">Projects are stored locally in your browser. Shared project links include the project data. No ranked-client account or ladder API is connected.</p>
+  </dialog>
+  <dialog id="share-dialog" class="modal" aria-labelledby="share-title"><div class="modal-heading"><div><div class="eyebrow">TAKE IT WITH YOU</div><h2 id="share-title">Your project link.</h2></div><button class="modal-close close-modal" aria-label="Close share dialog">×</button></div><p class="modal-intro">This link includes the current project. Site access permissions still apply.</p><label class="sr-only" for="share-link">Shareable project link</label><input id="share-link" class="share-field" readonly><button class="button button-primary" id="copy-share">Copy link ↗</button><p class="privacy-note">For a large tactics board, Export JSON creates a portable file with the same project.</p></dialog>
+  <dialog id="item-detail" class="modal" aria-labelledby="item-detail-title"><div class="modal-heading"><h2 id="item-detail-title">Item</h2><button class="modal-close close-modal" aria-label="Close item details">×</button></div><div id="item-detail-body"></div></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="lab.mjs"></script>
+</body>
+</html>
