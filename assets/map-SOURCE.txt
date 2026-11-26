@@ -1,0 +1,20 @@
+Dota Allstars v7.07b1 — actual map minimap asset
+
+Output: map-707b1.png, 1024 x 1024 RGB PNG.
+Native source texture: war3mapMap2.tga, 256 x 256 pixels.
+Transformation: decoded with Pillow TGA support, converted to RGB, enlarged 4x with Lanczos filtering. No map geometry, lanes, buildings, or orientation modified. Enlarging does not add map detail.
+
+Official source map:
+https://maps.d1map.net/dota/7.07/DotA_Allstars_7.07b1.w3x
+Official required asset archive:
+https://maps.d1map.net/dota/7.07/dota707a4files.mpq
+Official map catalogue:
+https://d1map.net/maps
+
+The map's war3map.wts identifies DotA v7.07b1 Allstars and requires dota707a4files.mpq. Its war3map.j selects war3mapmap2.tga when the VISUALS / MiniMap configuration is 2, which is the default. The image is extracted from that required MPQ, not copied from another version or rendered from estimated terrain.
+
+Orientation: native texture orientation preserved. Sentinel southwest, Scourge northeast; river runs northwest to southeast. This is a static tactical minimap, not a vision/fog or pathfinding simulation.
+
+Asset ownership: Warcraft III / DotA Allstars game and map art belongs to its respective creators. This is an unofficial community companion project.
+
+Original TGA SHA-256: 25f986605095bab701c00846c5ecc8f2341000ab3c57df90fa4158a9055331f5

@@ -1,0 +1,20 @@
+{
+  "version": "7.07b1",
+  "source": "https://maps.d1map.net/dota/7.07/DotA_Allstars_7.07b1.w3x",
+  "mapSha256": "bc8d9cbf642fdf1a942f03988657cf263faa92b690467dd58fd4aad858910e40",
+  "heroCount": 112,
+  "itemCount": 23,
+  "description": "Base hero stats, natural level growth and passive item bonuses extracted from the exact v7.07b1 map. Skills, talents, active effects and listed procs are excluded.",
+  "tables": [
+    "UnitBalance.slk",
+    "UnitWeapons.slk",
+    "ItemData.slk",
+    "AbilityData.slk",
+    "war3mapMisc.txt"
+  ],
+  "mapping": "Hero unit IDs follow the map’s WOE selection registry. Item labels map to ability graphs and the recipe registry. Numerical values are read from the map, not copied from older guides."
+}
+
+Static attribute growth is truncated to whole attributes, as in Warcraft III. Base damage excludes primary-attribute damage. Final armor adds the map’s global -1 offset and 0.14 per Agility. Self-only Endurance Aura attack-speed bonuses use the strongest aura in that buff group. No hero skills, talents, active effects or proc damage are included.
+
+Regeneration: JASS hrbs/mrbs hero-base tables and hris/mris item tables. HP regen adds 0.1 per STR; mana regen adds 0.05 per INT. Heart adds 1% max HP per copy and 1.5% missing HP once. Strongest Sange-family HP-regen amplification applies (Sange16%, Sange&Yasha25%). No external buffs or abilities.

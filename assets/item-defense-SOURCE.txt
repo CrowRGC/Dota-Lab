@@ -1,0 +1,31 @@
+Physical defense and magic-resistance evidence — exact DotA Allstars7.07b1
+
+Sources: /research/jass-constfold.j, map-707b1/AbilityData.slk.json, UnitAbilities.slk.json, object-strings.json, and item registrar rawcode mappings. No Dota2 balance values imported.
+
+Evasion:
+JASS QXD lines20539–20610 multiplies remaining hit probability per inventory item COPY. C04 (I0AI The Butterfly) multiplies by.65; A74 (I0J6 Talisman of Evasion) by.85; L24 (I0OV Heaven's Halberd) by.8; CB4/CC4 (I0A8/I0KP Radiance on/off) by.8. Return is100-R2I(QSD*100+.5), so the remaining hit fraction is rounded to whole percent before subtracting from100. Examples: two Butterfly=58% evasion, Butterfly+Talisman=45%, Butterfly+Halberd=48%. Hero evasion skills, temporary modifiers and Butterfly Flutter are excluded. QXD tracks Flutter via QZD consumption; default calculator assumes inactive Flutter.
+
+Magic resistance:
+Every one of112 extracted HERO_STATS unit IDs has A3UP in its UnitAbilities abilList. A3UP is native AIdd with DataE1=.75 and other damage multipliers1, giving25% base magical reduction.
+Known carried native AIdd passive received-magic multipliers:
+Cloak I04P A0K8=.85
+Glimmer Cape I0SA A38U=.85
+Hood of Defiance I0BM A4AO=.8
+Pipe of Insight I0K6 A0PT=.7
+Mage Slayer I14P A4N7=.8
+Bloodthorn I0VK A4N7=.8
+Eternal Shroud I14J A4MX=.8
+A single known passive composes multiplicatively with base .75. Multiple-item native stacking has not been verified against this map's engine, so automatic final magic resistance is unavailable (null), with a manual final-resistance prompt. Physical totals remain usable. Active Glimmer resistance, Pipe barrier/aura, hero abilities, enemy magic amplification and temporary debuffs are separate effects and are not implicitly included here.
+
+Assault Cuirass self aura is now applied by loadout.mjs:
+JASS YJG lines49844–49878 enumerates units in1200+25range without excluding the source. Allied units receive A0Q1 nativeAIde+5armor and A0Q4 nativeAIas+.3AS. J7E refreshes the same ability ID instead of stacking copies; self aura adds5armor and30AS once, while each item direct10armor/30AS still stacks. Enemybranch A0Q2 nativeAIde−5 is not applied until an explicit enemy-in-range scenario is modeled.
+
+Other exact-map effects, currently NOT applied by item-defense.mjs:
+Assault Cuirass tooltip:10 direct armor,+5 allied armor aura,-5 enemy aura,+30 direct AS,+30 AS aura,1200 AoE. Aura eligibility, stacking and proximity need separate modeling.
+Desolator tooltip:corruption -6 armor7s; extra soul damage charges are separate.
+Solar Crest active: caster -9 armor; ally +9armor,+50AS,+20%MS or enemy -9armor,-50AS,-20%MS for12s. Medallion similarly5armor.
+Radiance On aura blind15% miss700AoE is distinct from20% carried evasion, and is not silently applied.
+Vanguard JASS W1D:60%PRD per inventorycopy,50block for melee defender/25ranged. Crimson60%,80melee/60ranged. Only highest successful eligible block source applies (Crimson priority), with special activeblock/hero effects before them. Damage-block placement in final damage pipeline requires separate verification before automatic output.
+MKB tooltip80% evasion-pierce and70magical damage; separate attack-proc model owns this effect.
+
+Final-resistance correction: Pipe also has an unmodeled resistance aura, so even one Pipe now returns unknown finalMR until a manual final resistance is provided. Single native30% remains evidence, not a complete finalMR claim. Hero vs Hero can apply a single verified Desolator6/Corrosion3/BlightStone2 post-hit armor modifier and Cuirass enemy5 once when its explicit scenario toggle is on. Mixed corruption is left for manual input.

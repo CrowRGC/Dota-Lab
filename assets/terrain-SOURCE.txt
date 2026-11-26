@@ -1,0 +1,14 @@
+Ward vision model — exact map data, approximate visibility algorithm
+
+Sources: DotA Allstars v7.07b1 war3map.w3e (recovered archive block82), war3map.doo (block76), destructable modifications war3map.w3b (block80), and item object tooltips I05G/I05H.
+
+Corrections in this version:
+- Preserve all129x129 terrain vertices. Use nearest vertex sampling instead of treating the southwest vertex as an entire128x128 cell. Full W3E bounds[-8192,+8192] match the custom minimap better than camera bounds.
+- Retain elevation for2319 static ATtr/NTtw/CTtr/ITtw trees. A lower tree does not block a higher ward in this approximation; trees at the ward level or above still block.
+-360 directional rays at1 diagram-unit steps. Rays stop at higher terrain, same/higher-level tree footprints, or map edge. Height does not increase the ward range.
+-11 isolated summit candidates are exposed as clickable pillar targets. One explicit platform B008 supports the terrain-derived identification. Ward placement legality has not been verified in gameplay. Optional snapping visibly moves markers onto the summit instead of silently increasing source height. Imported markers retain their original coordinates until moved/snapped.
+-Standard observer range1600 world units; sentry detection1050, as stated in exact-map tooltips. One diagram unit equals16.384 world units. Custom observer radius remains adjustable.
+
+Limits: This is not the Warcraft III visibility engine. Tree footprints, terrain sampling and raycasts are approximate.123 B00B invisible LOS blockers are retained in the dataset but not applied: their point positions and occlusionHeight999 are known, their effective footprints are not. No arbitrary radii were invented. Cut/regrown trees, all custom destructables, terrain interpolation/ramp rules, dynamic blockers, day/night and sentry150-radius temporary12-second sight are not simulated. No claim of gameplay-perfect or engine-equivalent vision.
+
+Reproduction: data-provenance/extract_vision_v2.py reads recovered public-map blocks and emits the source dataset. dist/vision-data.mjs contains the derived terrain/tree data. Synthetic regression tests cover low/high trees, uphill obstruction, small summit sampling, explicit snapping and all11 source elevations. Fog toggle affects display only and persists independently of placement.

@@ -10,6 +10,8 @@ const TYPES={draft:{name:'Hero Suggestions',icon:'◈',eyebrow:'DRAFT & COUNTERP
 const HOME={name:'Home',eyebrow:'YOUR DOTA 1 WORKSPACE',heading:'Plan together. Build smarter. Pick better',description:'Three tools to prepare for your next game. Choose where you want to start.'};
 const PAGES={home:HOME,...TYPES};
 const STORE='dota-lab-projects-v2';
+const LAST_TAB='dota-lab-last-tab-v1';
+function lastTab(){try{const tab=localStorage.getItem(LAST_TAB);return Object.hasOwn(PAGES,tab)?tab:'home';}catch{return 'home';}}
 const titles=Object.fromEntries(Object.entries(TYPES).map(([k,v])=>[k,v.title]));
 let active='home',timer,pickerResolve=null,pickerKind='hero',pickerExclude=new Set(),pickerCategory='All';
 const mounted={};
@@ -25,6 +27,7 @@ function selectTool(type){
  if(!PAGES[type])return;
  if(active==='tactics'&&type!=='tactics')mounted.tactics?.pause?.();
  active=type;
+ try{localStorage.setItem(LAST_TAB,type);}catch{}
  for(const id of Object.keys(PAGES))document.getElementById(id+'-view').hidden=id!==type;
  document.querySelectorAll('[data-workspace-tool]').forEach(b=>{const selected=b.dataset.workspaceTool===type;b.classList.toggle('active',selected);if(selected)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
  const page=PAGES[type],isHome=type==='home';
@@ -66,4 +69,4 @@ $('#import-project').addEventListener('click',()=>$('#import-file').click());$('
 function loadHash(){if(!location.hash.startsWith('#project='))return;try{const p=unpackProject(location.hash);if(p&&openProject(p))toast('Shared project loaded.');}catch{toast('This project link could not be read.');}}
 window.addEventListener('hashchange',loadHash);
 document.querySelectorAll('dialog').forEach(d=>d.addEventListener('click',e=>{if(e.target!==d)return;const r=d.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)d.close();}));
-$('#roster-count').textContent=HEROES.length;renderSaved();selectTool('home');loadHash();
+$('#roster-count').textContent=HEROES.length;renderSaved();selectTool(lastTab());loadHash();

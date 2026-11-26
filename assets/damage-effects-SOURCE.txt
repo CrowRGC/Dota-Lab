@@ -1,0 +1,9 @@
+Hero vs Hero — damage effect scope
+
+Base tables and item bonuses: exact DotA Allstars v7.07b1. The damage-effect registry tracks47 item entries/variants, alongside all carried item direct stats. Physical attacks, passive criticals, separate ready-proc bonus damage, DoT perapplication and selected active effects are intentionally separate. No combined spell rotation, guaranteed uptime or fight winner is inferred.
+
+Core evidence: item profiles in the map, JASS GEP/GFP critical rules, A3I/ABI Witchpoison, T7G/S3G/CSD spellamp, A5I chainlightning priority, item bash/ManaBreak, WRG Radiance, MDH Dagon, E0H meteors, I8H Urn, IGH Vessel, HRH/HPH Etherblast. See module comments and data-provenance/ITEM-POISON.txt.
+
+Conditional effects include charges, cooldowns, currentmana/currentHP, eligible spell casts, tracked silence damage, target proximity and active states. Summoned-unit attacks, primary-target cleave, reflection ordering, damageblock pipeline, some aura/resistance stacking and mixedcorruption remain incomplete and are labeled rather than assigned invented finaldamage. Pipe finalMR requires manual input because its additional aura is not fullymodeled.
+
+Synthetic/model tests verify arithmetic and state transitions. This has not been validated as a Warcraftengine-equivalent combat simulator or tested visually in a live gameplay session.
