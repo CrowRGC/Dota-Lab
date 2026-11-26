@@ -7,7 +7,7 @@
   <meta name="description" content="Your Dota 1 workspace: sketch a strategy, compare item builds and explore hero suggestions for v7.07b1.">
   <title>Dota Lab — Plan. Compare. Pick.</title>
   <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
-  <link rel="stylesheet" href="lab.css?v=c5bced9a2a6b">
+  <link rel="stylesheet" href="lab.css?v=d0cbee75398d">
   <link rel="stylesheet" href="draft.css?v=2df7a82f9e12">
   <link rel="stylesheet" href="duel.css?v=784a2c07ee43">
   <link rel="stylesheet" href="tactics.css?v=39aaacf8423a">
@@ -29,7 +29,7 @@
     <div class="sidebar-bottom"><div class="version-card"><span>DOTA 1 WORKSPACE</span><strong>v7.07b1</strong><p>Draft. Compare. Plan.</p></div><p class="sidebar-note">An independent community project.<br>Built for the love of the game.</p></div>
   </aside>
   <div class="app-shell">
-    <header class="topbar"><div class="breadcrumbs"><span>Workspace</span><span>/</span><strong id="breadcrumb-tool">Home</strong></div><div class="top-actions"><div class="site-credit-card" aria-label="Project credits"><span>Powered by <strong>Ranked Gaming Client</strong></span><span>Developed by <strong>Crow</strong> with <span class="credit-heart" aria-label="love">❤️</span></span></div><button class="mobile-saved" id="mobile-items">Items</button><button class="mobile-saved" id="mobile-saved">Saved projects</button><span class="preview-tag">COMMUNITY PREVIEW</span><span class="map-pill">v7.07b1</span></div></header>
+    <header class="topbar"><div class="breadcrumbs"><span>Workspace</span><span>/</span><strong id="breadcrumb-tool">Home</strong></div><div class="top-actions"><button class="mobile-saved" id="mobile-items">Items</button><button class="mobile-saved" id="mobile-saved">Saved projects</button><span class="preview-tag">COMMUNITY PREVIEW</span><span class="map-pill">v7.07b1</span></div></header>
     <main class="workspace-main">
       <nav class="mobile-tabs" aria-label="Workspace tools"><button data-workspace-tool="home" class="active">⌂ Home</button><button data-workspace-tool="tactics">⌖ Strategy</button><button data-workspace-tool="duel">⇄ Build Duel</button><button data-workspace-tool="draft">◈ Heroes</button></nav>
       <div class="workspace-heading"><div><div class="eyebrow" id="tool-eyebrow">YOUR DOTA 1 WORKSPACE</div><h1 id="tool-heading">Plan together. Build smarter. Pick better</h1><p id="tool-description">Three tools to prepare for your next game. Choose where you want to start.</p></div><div class="heading-actions" hidden><button class="button" id="save-project">＋ Save project</button><button class="button button-primary" id="share-project">↗ Share project</button></div></div>
@@ -52,7 +52,7 @@
         </div>
         <div class="home-bottom-note"><div><span class="home-note-icon">▤</span><p><strong>Keep a good idea.</strong> Save projects in this browser, or export JSON to keep a portable copy.</p></div><p class="home-scope-note">Draft advice uses curated tags. Build calculations and ward vision explain their assumptions inside each tool.</p></div>
       </section><section id="draft-view" class="tool-view" aria-label="Hero Suggestions" hidden></section><section id="duel-view" class="tool-view" aria-label="Build Duel" hidden></section><section id="tactics-view" class="tool-view" aria-label="Strategy Board" hidden></section></div>
-      <footer class="footer"><span><strong>Dota Lab</strong><span>·</span>One workspace. Three ways to prepare.</span><button id="footer-sources">Sources, assumptions &amp; credits ↗</button></footer>
+      <footer class="footer"><div class="footer-links"><span><strong>Dota Lab</strong><span>·</span>One workspace. Three ways to prepare.</span><button id="footer-sources">Sources, assumptions &amp; credits ↗</button></div><div class="site-credit-card" aria-label="Project credits"><span>Powered by <strong>Ranked Gaming Client</strong></span><span>Developed by <strong>Crow</strong> with <span class="credit-heart" aria-label="love">❤️</span></span></div></footer>
     </main>
   </div>
   <dialog id="picker-dialog" class="modal wide" aria-labelledby="picker-title"><div class="modal-heading"><div><div class="eyebrow" id="picker-eyebrow">HERO CATALOG</div><h2 id="picker-title">Choose a hero.</h2></div><button class="modal-close close-modal" aria-label="Close selector">×</button></div><p id="picker-description" class="modal-intro"></p><div class="picker-search"><span aria-hidden="true">⌕</span><label class="sr-only" for="picker-search">Search catalog</label><input type="search" id="picker-search" placeholder="Search hero or classic name…" autocomplete="off"></div><div id="picker-categories" class="item-category-tabs"></div><div id="picker-count" class="picker-count"></div><div class="picker-grid" id="picker-grid"></div></dialog>
